@@ -1,11 +1,33 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const navVariants = {
+  hidden:{
+    y: -250
+  },
+  visible:{
+    y: 0,
+    transition: {
+      delay: 0.1,
+      type: 'tween',
+      duration: 0.5
+    }
+  }
+}
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="logo black">
+    <motion.nav className="navbar"
+      variants={navVariants}  
+      initial='hidden'
+      animate='visible'
+    >
+      <div className="menu-bar">
+        <a href="#1"><i className="material-icons me grey-text"></i></a>
+        <a href="#1"><i className="material-icons skills grey-text"></i></a>
+        <a href="#1" className="logo">
         <div className="logo-img">
-          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 5370 5370">
+          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 5370 5370">
           <g id="circle" fill="#808080" stroke="none">
             <path d="M2380 5355 c-329 -40 -612 -125 -903 -272 -668 -337 -1159 -929 -1373 -1652 -117 -394 -136 -848 -54 -1272 75 -391 262 -797 518 -1129 90 -116 306 -335 427 -433 322 -260 748 -463 1137 -542 357 -72 724 -74 1080 -5 405 78 829 278 1163 547 121 98 337 317 427 433 482 624 668 1405 518 2181 -77 401 -275 825 -539 1154 -387 484 -972 840 -1570 955 -256 50 -594 64 -831 35z m515 -350 c206 -14 477 -81 690 -170 818 -343 1369 -1117 1424 -2003 74 -1178 -739 -2223 -1898 -2438 -262 -48 -590 -48 -852 0 -1050 195 -1831 1077 -1898 2144 -74 1178 739 2222 1898 2438 210 39 371 46 636 29z"/>
             </g>
@@ -22,24 +44,11 @@ const Navbar = () => {
             </g>
           </svg>
         </div>
-        <p>.netHeim</p>
-      </div>
-      <div className="menu-bar">
-        <a href="#1"><i className="material-icons home grey-text"></i></a>
-        <a href="#1"><i className="material-icons me grey-text"></i></a>
-        <a href="#1"><i className="material-icons skills grey-text"></i></a>
+      </a>
         <a href="#1"><i className="material-icons work grey-text"></i></a>
         <a href="#1"><i className="material-icons contact grey-text"></i></a>
       </div>
-      <ul className="social">
-        <a href="www.twitter.com"><i className="fab fa-twitter grey-text"></i></a>
-        <a href="www.facebook.com"><i className="fab fa-facebook-f grey-text"></i></a>
-        <a href="www.telegram.com"><i className="fab fa-telegram-plane grey-text"></i></a>
-        <a href="www.viber.com"><i className="fab fa-viber grey-text"></i></a>
-        <a href="www.instagram.com"><i className="fab fa-instagram grey-text"></i></a>
-        <a href="www.whatsapp.com"><i className="fab fa-whatsapp grey-text"></i></a>
-      </ul>
-    </nav>
+    </motion.nav>
   );
 }
  
