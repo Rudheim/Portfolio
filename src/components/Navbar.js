@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 
 const navVariants = {
   hidden:{
@@ -23,9 +24,9 @@ const Navbar = () => {
       animate='visible'
     >
       <div className="menu-bar">
-        <a href="#1"><i className="material-icons me grey-text"></i></a>
-        <a href="#1"><i className="material-icons skills grey-text"></i></a>
-        <a href="#1" className="logo">
+        <NavLink to="/about" activeClassName="selected"><i className="material-icons me grey-text"></i></NavLink>
+        <NavLink to="/skills" activeClassName="selected"><i className="material-icons skills grey-text"></i></NavLink>
+        <NavLink exact to="/" className="logo">
         <div className="logo-img">
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 5370 5370">
           <g id="circle" fill="#808080" stroke="none">
@@ -44,9 +45,9 @@ const Navbar = () => {
             </g>
           </svg>
         </div>
-      </a>
-        <a href="#1"><i className="material-icons work grey-text"></i></a>
-        <a href="#1"><i className="material-icons contact grey-text"></i></a>
+      </NavLink>
+        <NavLink to="/work" activeClassName="selected"><i className="material-icons work grey-text"></i></NavLink>
+        <NavLink to="/contact" activeClassName="selected"><i className="material-icons contact grey-text"></i></NavLink>
       </div>
     </motion.nav>
   );
