@@ -3,17 +3,21 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import { MemoryRouter } from 'react-router-dom';
+import LanguageProvider from './contexts/LanguageContext';
 
 function App() {
+
   return (
     <>
-    <MemoryRouter>
-      <Navbar />
-      <main>
-        <Dashboard />
-      </main>
-      <Footer />
-    </MemoryRouter>
+      <MemoryRouter>
+        <LanguageProvider>
+          <Navbar />
+          <main>
+            <Dashboard />
+          </main>
+          <Footer />
+        </LanguageProvider>
+      </MemoryRouter>
     </>
   );
 }

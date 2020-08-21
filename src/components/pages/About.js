@@ -1,66 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 const componentVariants = {
-  hidden:{
-    x: -2000,
-    originX: 0,
-    scale: 0
-  },
-  visible:{
-    x: 0,
-    scale: 1,
-    transition: {
-      delay: .5,
-      type: 'spring',
-      damping: 15,
-    }
-  },
-  exit:{
-    x: 2000,
-    scale: 0,
-    transition:{
-      duration: .5
-    }
-  }
+  hidden: { x: -2000, originX: 0, scale: 0 },
+  visible: { x: 0, scale: 1, transition: { delay: .5, type: 'spring', damping: 15 } },
+  exit: { x: 2000, originX: 0, scale: 0, transition:{ duration: .5 } }
 }
 
 const pVariants = {
-  hidden:{
-    scale: 0,
-  },
-  visible:{
-    scale: 1,
-    transition: {
-      delay: 1,
-      type: 'spring'
-    }
-  },
-  hover:{
-    scale: 0.8,
-    originX: 0,
-    transition:{
-      type: 'spring',
-      stiffness: 300,
-      damping: 5
-    }
-  }
+  hidden: { scale: 0 },
+  visible: { scale: 1, transition: { delay: 1, type: 'spring' } },
+  hover: { scale: 0.8, originX: 0, transition:{ type: 'spring', stiffness: 300, damping: 5 } }
 }
 
 const About = () => {
+
+  const {curLanguage} = useContext(LanguageContext);
+
   return (
-    <motion.div className="home"
-      variants={componentVariants}  
-      initial='hidden'
-      animate='visible'
-      exit='exit'>
-      <p className="tag h1-tag">&lt;h1&gt;<span className="title-str">&nbsp;About me&nbsp;</span>&lt;/h1&gt;</p>
-      <motion.p className="tag p-tag"
-        variants={pVariants}
-        initial='hidden'
-        animate='visible'>
-      &lt;p&gt;<span className="content-str">
-      &nbsp;Well-organised person, problem solver, independent employee with high attention to detail. Fan of MMA, outdoor activities, TV series and, recently, English literature. A family person, father of two fractious boys, therefore remote employment is preferred.&nbsp;</span>&lt;/p&gt;</motion.p>
+    <motion.div className="home" variants={componentVariants} initial='hidden' animate='visible' exit='exit'>
+      <div className="theme-img-container">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="600px" height="258px" viewBox="0 0 5000 2580" preserveAspectRatio="xMidYMid meet">
+        <g id="layer101" fill="#262626" stroke="none">
+          <path d="M3569 2578 c-4 -13 -7 -782 -3 -810 l6 -38 264 0 264 0 0 425 0 425 -265 0 c-146 0 -265 -1 -266 -2z m118 -54 c9 -23 -13 -40 -32 -24 -12 10 -13 16 -4 26 15 18 28 18 36 -2z m328 -14 c0 -22 -29 -18 -33 3 -3 14 1 18 15 15 10 -2 18 -10 18 -18z m55 -365 l0 -315 -240 0 -240 0 0 315 0 315 240 0 240 0 0 -315z m-200 -350 c0 -8 -7 -15 -15 -15 -16 0 -20 12 -8 23 11 12 23 8 23 -8z m-137 -32 c-13 -2 -33 -2 -45 0 -13 2 -3 4 22 4 25 0 35 -2 23 -4z"/>
+          <path d="M360 2500 c-219 -6 -283 -10 -313 -23 -70 -30 -67 -38 80 -209 l98 -113 5 -620 5 -620 420 -6 c231 -3 471 -7 533 -8 l112 -1 0 -450 0 -450 1474 0 1474 0 6 113 c3 61 7 270 9 464 l2 352 -60 4 c-33 2 32 4 145 5 267 3 527 18 576 34 71 23 69 6 72 623 2 303 1 587 -3 632 -8 99 -32 142 -88 160 -25 9 -160 15 -417 19 l-380 7 0 -81 0 -82 395 0 395 0 0 -352 c0 -194 -3 -457 -7 -583 l-6 -231 -26 -2 c-14 -1 -104 -6 -199 -11 -102 -6 -179 -14 -187 -21 -7 -6 -73 -16 -147 -21 -73 -6 -135 -12 -137 -15 -2 -2 34 -4 80 -5 46 0 93 -4 104 -9 12 -6 -84 -8 -250 -7 -207 2 -276 6 -298 16 -31 16 -50 67 -45 121 l3 35 28 -47 c45 -77 64 -83 262 -83 188 0 345 12 345 26 0 5 -74 9 -167 9 -187 0 -275 15 -299 48 -17 25 -47 18 -39 -8 8 -26 -14 -36 -33 -16 -15 15 -18 54 -22 305 -5 302 -8 321 -51 321 -10 0 -38 -10 -61 -22 -43 -23 -43 -23 -650 -27 l-608 -3 0 94 0 94 88 -3 c48 -3 93 -6 100 -8 8 -3 12 -27 12 -72 0 -76 9 -97 36 -91 17 3 19 13 19 83 1 90 6 105 39 105 39 0 47 -19 35 -88 -11 -69 -1 -102 30 -102 44 0 48 34 25 213 l-7 47 84 -1 c46 0 163 -10 259 -23 l175 -22 -90 -8 c-49 -5 -157 -11 -240 -15 -198 -8 -196 -26 3 -26 175 1 307 18 342 46 24 18 24 20 7 33 -42 33 -261 54 -649 63 l-268 6 0 69 c0 67 2 72 43 126 51 66 167 238 167 247 0 4 -29 -9 -64 -28 -91 -50 -127 -60 -162 -47 -26 10 -31 8 -54 -19 -33 -41 -69 -41 -92 -2 -13 24 -26 31 -65 38 -77 13 -584 10 -608 -4 -16 -9 -25 -9 -40 0 -23 14 -457 17 -518 4 -44 -9 -45 -27 -2 -39 16 -4 250 -10 520 -14 269 -3 535 -9 589 -14 111 -8 120 -14 131 -81 8 -46 15 -48 37 -11 26 43 81 91 116 101 18 5 32 7 32 4 0 -3 -30 -46 -67 -95 l-68 -90 -715 6 c-393 3 -858 9 -1033 12 l-318 7 -54 71 c-47 61 -52 73 -40 85 12 12 19 11 53 -13 45 -31 92 -46 144 -46 75 0 29 31 -69 46 -28 4 -50 16 -67 35 l-25 28 -46 -17 -46 -17 -65 35 c-36 19 -69 39 -74 45 -5 7 370 11 1148 13 1124 3 1513 9 1528 25 4 4 0 15 -9 25 -16 15 -57 18 -405 23 -496 8 -1577 8 -1932 -1z m4047 -166 c8 -21 -13 -42 -28 -27 -13 13 -5 43 11 43 6 0 13 -7 17 -16z m381 -8 c4 -21 -14 -37 -35 -29 -14 5 -18 35 -6 47 12 12 38 1 41 -18z m-2413 -791 l0 -535 -1022 0 -1023 0 0 535 0 535 1023 0 1022 0 0 -535z m315 369 l0 -37 -37 7 c-21 3 -66 6 -100 6 l-63 0 0 30 0 30 100 0 100 0 0 -36z m-14 -305 c3 -6 0 -15 -7 -20 -18 -11 -169 -12 -169 0 0 21 164 39 176 20z m124 -9 c0 -13 -7 -20 -20 -20 -19 0 -27 20 -13 33 13 14 33 6 33 -13z m780 11 l75 -6 -115 -7 c-148 -10 -451 -10 -560 0 l-85 7 110 6 c154 7 485 8 575 0z m210 -78 c0 -9 -8 -25 -17 -36 -16 -17 -18 -43 -18 -232 0 -201 1 -215 21 -242 43 -57 76 -68 224 -71 l135 -4 -3 -411 -2 -410 -638 6 c-350 4 -958 7 -1349 7 l-713 0 6 382 c4 211 8 384 9 386 1 1 232 5 512 9 l511 6 6 36 c3 20 6 104 6 186 0 83 3 193 6 246 l7 96 112 6 c62 3 339 11 616 18 398 9 507 15 519 25 20 19 50 17 50 -3z m-2583 -559 c9 -23 -13 -40 -32 -24 -12 10 -13 16 -4 26 15 18 28 18 36 -2z m186 -21 c-13 -2 -35 -2 -50 0 -16 2 -5 4 22 4 28 0 40 -2 28 -4z m2807 -842 c0 -5 -7 -14 -15 -21 -13 -10 -15 -9 -15 9 0 12 6 21 15 21 8 0 15 -4 15 -9z"/>
+          <path d="M487 2379 c-38 -5 -78 -14 -90 -20 -20 -11 -20 -12 -1 -26 14 -11 37 -14 86 -10 56 3 77 0 116 -18 47 -22 68 -47 56 -66 -9 -16 23 -10 37 7 11 14 9 20 -15 41 -16 13 -26 26 -23 29 7 8 160 7 196 -1 17 -4 31 -13 31 -21 0 -19 6 -18 29 5 11 11 40 23 65 26 60 9 78 30 40 46 -37 15 -432 21 -527 8z"/>
+          <path d="M1530 2306 c-9 -12 -7 -17 9 -28 27 -17 27 -26 -1 -30 -21 -3 -20 -5 12 -26 44 -27 50 -27 43 -1 -5 17 3 29 28 51 l34 29 -37 -7 c-30 -5 -39 -3 -44 10 -8 20 -28 21 -44 2z"/>
+          <path d="M1094 2279 c-58 -37 -59 -38 -52 -44 7 -7 111 48 116 63 6 19 -10 14 -64 -19z"/>
+          <path d="M546 2284 c-20 -19 -21 -54 -2 -54 17 0 49 47 41 60 -9 14 -21 12 -39 -6z"/>
+          <path d="M1750 2279 c0 -23 54 -79 76 -79 20 0 17 17 -3 29 -17 9 -17 11 1 24 11 8 16 19 12 25 -10 17 -36 15 -42 -3 -9 -22 -24 -18 -24 5 0 11 -4 20 -10 20 -5 0 -10 -9 -10 -21z"/>
+          <path d="M2090 2290 c0 -5 18 -10 41 -10 24 0 38 4 34 10 -3 6 -22 10 -41 10 -19 0 -34 -4 -34 -10z"/>
+          <path d="M1212 2275 c-18 -8 -35 -21 -38 -30 -9 -22 14 -45 44 -45 l25 0 -21 23 -22 24 25 11 c44 20 75 15 75 -11 0 -23 17 -47 33 -47 4 0 6 9 2 19 -7 25 28 51 69 51 28 0 28 -1 12 -19 -17 -19 -17 -20 3 -30 29 -16 42 -14 39 7 -2 11 4 18 20 20 35 5 26 19 -22 31 -63 15 -204 13 -244 -4z"/>
+          <path d="M1928 2280 c-21 -13 -24 -50 -6 -68 19 -19 29 -14 22 13 -5 20 -2 25 22 31 16 4 35 2 46 -5 27 -16 33 -8 10 12 -24 22 -72 30 -94 17z"/>
+          <path d="M2240 2264 c-22 -57 -3 -80 29 -35 27 37 27 61 1 61 -13 0 -24 -10 -30 -26z"/>
+          <path d="M350 2232 c0 -16 69 -34 115 -30 l40 4 -30 13 c-41 18 -125 27 -125 13z"/>
+          </g>
+        </svg>
+      </div>
+      <p className="tag h2-tag">&lt;h1&gt;<span className="title-str">&nbsp;{curLanguage.about.title}&nbsp;</span>&lt;/h1&gt;</p>
+      <motion.p className="tag p-tag" variants={pVariants} initial='hidden' animate='visible'>
+        &lt;p&gt;<span className="content-str">&nbsp;{curLanguage.about.txt}&nbsp;</span>&lt;/p&gt;
+      </motion.p>
     </motion.div>
   );
 }

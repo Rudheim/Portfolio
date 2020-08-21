@@ -1,66 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Modal from './Modal';
+import pizzaimg_logo from '../../assets/pages images/pizza/pizza-logo.jpg';
+import pizzapage_img from '../../assets/pages images/pizza/pizza-img.jpg';
+import weatherimg_logo from '../../assets/pages images/weather/weather-logo.jpg';
+import weatherpage_img from '../../assets/pages images/weather/weather-img.jpg';
 
 const componentVariants = {
-  hidden:{
-    x: -2000,
-    originX: 0,
-    scale: 0
-  },
-  visible:{
-    x: 0,
-    scale: 1,
-    transition: {
-      delay: .5,
-      type: 'spring',
-      damping: 15,
-    }
-  },
-  exit:{
-    x: 2000,
-    scale: 0,
-    transition:{
-      duration: .5
-    }
-  }
+  hidden: { scale: 0 },
+  visible: { scale: 1, transition: { delay: .5, delayChildren: .6, staggerChildren: .4, } },
+  exit:{ scale: 0, transition:{ duration: .5 } }
 }
 
-const pVariants = {
-  hidden:{
-    scale: 0,
-  },
-  visible:{
-    scale: 1,
-    transition: {
-      delay: 1.1,
-      type: 'spring'
-    }
-  },
-  hover:{
-    scale: 0.8,
-    originX: 0,
-    transition:{
-      type: 'spring',
-      stiffness: 300,
-      damping: 5
-    }
-  }
+const pageLogoVariants = {
+  hidden: { scale: 0 },
+  visible: { scale: 1, transition: { type: 'spring', damping: 15 } },
+  exit: { scale: 0, transition: { duration: .5 } }
 }
 
 const Work = () => {
+
+  const [showModal, setShowModal] = useState(false);
+  const [pageData, setPageData] = useState();
+
+  const data = [
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Panucci\'s Pizza', link: 'www.pizza.com', pagePrev: pizzapage_img, id: 1 },
+    { pageLogo: weatherimg_logo, alt: '', name: 'SimpleWeather', link: 'www.simpleweather.com', pagePrev: weatherpage_img, id: 2 },
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Taemno.net',  link: 'Taemno.net', pagePrev: pizzapage_img, id: 3 },
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Panucci\'s Pizza', link: 'www.pizza.com', pagePrev: pizzapage_img, id: 4 },
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Weather', link: 'www.weather.com', pagePrev: pizzapage_img, id: 5 },
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Taemno.net', link: 'Taemno.net', pagePrev: pizzapage_img, id: 6 }
+  ]
+
   return (
-    <motion.div className="home"
-      variants={componentVariants}  
-      initial='hidden'
-      animate='visible'
-      exit='exit'>
-      <p className="tag h1-tag">&lt;h1&gt;<span className="title-str">&nbsp;Portfolio&nbsp;</span>&lt;/h1&gt;</p>
-      <motion.p className="tag p-tag"
-        variants={pVariants}
-        initial='hidden'
-        animate='visible'>
-      &lt;p&gt;<span className="content-str">
-      &nbsp;Well-organised person, problem solver, independent employee with high attention to detail. Fan of MMA, outdoor activities, TV series and, recently, English literature. A family person, father of two fractious boys, therefore remote employment is preferred.&nbsp;</span>&lt;/p&gt;</motion.p>
+    <motion.div className="home" variants={componentVariants} initial='hidden' animate='visible' exit='exit' >
+      <div className="showcase welcome">
+        {data.map(page => { return (
+          <motion.div className="img-placeholder" key={page.id} variants={pageLogoVariants} >
+            <img src={page.pageLogo} alt="" className="page-logo" />
+            <div onClick={() => {setShowModal(true); setPageData(page)}} className="btn-floating btn-large waves-effect waves-light amber darken-4 more-info"><i className="material-icons">search</i></div>
+            <div className="description">
+              <p>{page.name}</p>
+            </div>
+          </motion.div>     
+          )}
+        )}
+        {showModal && <Modal page={pageData} showModal={showModal} setShowModal={setShowModal} /> }
+      </div>
     </motion.div>
   );
 }

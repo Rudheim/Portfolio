@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.59cca2e3.chunk.css",
+    "main.js": "/static/js/main.e9304c31.chunk.js",
+    "main.js.map": "/static/js/main.e9304c31.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.19ccc7f6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.19ccc7f6.js.map",
+    "static/css/2.5a510433.chunk.css": "/static/css/2.5a510433.chunk.css",
+    "static/js/2.46a23335.chunk.js": "/static/js/2.46a23335.chunk.js",
+    "static/js/2.46a23335.chunk.js.map": "/static/js/2.46a23335.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f8a6a93200079b1bf058626bc98d327d.js": "/precache-manifest.f8a6a93200079b1bf058626bc98d327d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.5a510433.chunk.css.map": "/static/css/2.5a510433.chunk.css.map",
+    "static/css/main.59cca2e3.chunk.css.map": "/static/css/main.59cca2e3.chunk.css.map",
+    "static/js/2.46a23335.chunk.js.LICENSE.txt": "/static/js/2.46a23335.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/Roboto-Regular.11eabca2.ttf",
+    "static/media/pizza-img.jpg": "/static/media/pizza-img.60974796.jpg",
+    "static/media/pizza-logo.jpg": "/static/media/pizza-logo.015ca7f1.jpg",
+    "static/media/react.png": "/static/media/react.c3b8468b.png",
+    "static/media/weather-img.jpg": "/static/media/weather-img.0a05066e.jpg",
+    "static/media/weather-logo.jpg": "/static/media/weather-logo.76209d6f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19ccc7f6.js",
+    "static/css/2.5a510433.chunk.css",
+    "static/js/2.46a23335.chunk.js",
+    "static/css/main.59cca2e3.chunk.css",
+    "static/js/main.e9304c31.chunk.js"
+  ]
+}
