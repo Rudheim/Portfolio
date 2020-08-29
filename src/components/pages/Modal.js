@@ -12,7 +12,7 @@ const Modal = ({setShowModal, page}) => {
     <AnimatePresence> 
         <div className="page-modal" onClick={() => {setShowModal(false)}} >
           <motion.div variants={pageImgVariants} animate='visible' initial='hidden' className="page-display">
-            <div className="page-link black"><a href={page.link}>{page.link}</a></div>
+            <div className="page-link black"><a target="_blank" rel="noopener noreferrer" href={page.link}>{page.link}</a></div>
             <img src={page.pagePrev} alt=""/>
           </motion.div>
         </div>

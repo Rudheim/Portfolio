@@ -69,26 +69,17 @@ main {
   transition: .3s;
 }
 .logo .logo-img svg:hover #circle-logo{
-  fill: #757575;
+  fill: #0091ea;
 }
 #viking-logo{
   transition: 5s;
 }
 .logo .logo-img svg:hover #viking-logo{
-  fill: #ff6f00;
+  fill: #00bfa5;
   animation-duration: 0.5s;
   transition: .3s;
 }
-/* @keyframes rotation {
-  0% {
-      transform: rotate3d(0, 1, 0, 0deg);
-      transform-origin: center;
-  }
-  100% {
-      transform: rotate3d(0, 1, 0, 360deg);
-      transform-origin: center;
-  }
-} */
+
 
 /* Menu section */
 .menu-bar{
@@ -105,7 +96,7 @@ main {
 }
 
 .selected i{
-  color: #ff6f00 !important;
+  color: #00bfa5 !important;
 }
 
 /* Aligning items so text on hover will be displayed in the center */
@@ -140,7 +131,7 @@ main {
 
 /* Changing color on hover */
 .menu-bar a:hover {
-  color: #ff6f00;
+  color: #00bfa5;
 }
 /* Hiding icons on hover */
 .menu-bar a:hover i {
@@ -153,7 +144,7 @@ main {
   content: 'account_circle';
 }
 .menu-bar .skills:before{
-  content: 'equalizer';
+  content: 'build';
 }
 .menu-bar .work:before{
   content: 'business_center';
@@ -213,12 +204,17 @@ main {
 }
 
 .html-tag:hover .dropdown-languages{
-  display: flex;
+  opacity: 1;
+  transform: scale(1);
+  transition-duration: .5s;
 }
 
 .dropdown-languages{
   align-self: center;
-  display: none;
+  display: flex;
+  opacity: 0;
+  transform: scale(0);
+  transition-duration: .5s;
   padding: 5px 5px;
   margin-left: 5px;
 }
@@ -231,9 +227,9 @@ main {
 }
 
 #dropdown-languages img:hover{
-  -webkit-box-shadow: 0px 3px 0px 0px rgba(255,111,0,1);
-  -moz-box-shadow: 0px 3px 0px 0px rgba(255,111,0,1);
-  box-shadow: 0px 3px 0px 0px rgba(255,111,0,1);
+  -webkit-box-shadow: 0px 3px 0px 0px #00bfa5;
+  -moz-box-shadow: 0px 3px 0px 0px #00bfa5;
+  box-shadow: 0px 3px 0px 0px #00bfa5;
   transform: scale(1.1);
   transition-duration: .5s;
 }
@@ -250,7 +246,7 @@ main {
   z-index: 2;
 }
 .tag:hover{
-  color: rgb(158, 71, 71);
+  color: #0091ea;
 }
 
 .header-tag{
@@ -299,13 +295,13 @@ main {
   font-family: "Roboto";
   font-size: 17px;
   letter-spacing: 1px;
-  color: #ff6f00;
+  color: #00bfa5;
   overflow: hidden;
   width: 100%;
 }
 .title-str{
   font-size: 50px;
-  color: #ff6f00;
+  color: #00bfa5;
   font-weight: bolder;
   font-family: "Raleway";
 }
@@ -348,8 +344,8 @@ main {
   left: 0px;
   width: 100%;
   height: 2px;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(8, 20, 43, 0)), to(#ff6f00));
-  background: linear-gradient(to left, rgba(8, 20, 43, 0), #ff6f00);
+  background: -webkit-gradient(linear, right top, left top, from(rgba(8, 20, 43, 0)), to(#00bfa5));
+  background: linear-gradient(to left, rgba(8, 20, 43, 0), #00bfa5);
   -webkit-animation: 2s animateTop linear infinite;
   animation: 2s animateTop linear infinite;
 }
@@ -369,8 +365,8 @@ main {
   right: 0px;
   height: 100%;
   width: 2px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 20, 43, 0)), to(#ff6f00));
-  background: linear-gradient(to top, rgba(8, 20, 43, 0), #ff6f00);
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 20, 43, 0)), to(#00bfa5));
+  background: linear-gradient(to top, rgba(8, 20, 43, 0), #00bfa5);
   -webkit-animation: 2s animateRight linear -1s infinite;
   animation: 2s animateRight linear -1s infinite;
 }
@@ -389,8 +385,8 @@ main {
   left: 0px;
   width: 100%;
   height: 2px;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(8, 20, 43, 0)), to(#ff6f00));
-  background: linear-gradient(to right, rgba(8, 20, 43, 0), #ff6f00);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(8, 20, 43, 0)), to(#00bfa5));
+  background: linear-gradient(to right, rgba(8, 20, 43, 0), #00bfa5);
   -webkit-animation: 2s animateBottom linear infinite;
   animation: 2s animateBottom linear infinite;
 }
@@ -409,8 +405,8 @@ main {
   left: 0px;
   height: 100%;
   width: 2px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 20, 43, 0)), to(#ff6f00));
-  background: linear-gradient(to bottom, rgba(8, 20, 43, 0), #ff6f00);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 20, 43, 0)), to(#00bfa5));
+  background: linear-gradient(to bottom, rgba(8, 20, 43, 0), #00bfa5);
   -webkit-animation: 2s animateLeft linear -1s infinite;
   animation: 2s animateLeft linear -1s infinite;
 }
@@ -428,9 +424,12 @@ main {
 .button-neon:hover
 {
   color: #000000;
-  background: #ff6f00;
+  background: #00bfa5;
   animation: pulse;
-  box-shadow: 0 0 10px #ff6f00, 0 0 40px #ff6f00, 0 0 80px #ff6f00;
+  box-shadow: 0 0 10px #00bfa5, 0 0 40px #00bfa5, 0 0 80px #00bfa5;
+}
+.button-neon:active{
+  transform: scale(.7);
 }
 
 .showcase{
@@ -441,6 +440,7 @@ main {
 
 .showcase img{
   transition-duration: .5s;
+  max-height: 100vh;
 }
 .img-placeholder .more-info{
   position: absolute !important;
@@ -523,7 +523,7 @@ main {
 
 .page-link a{
   line-height: normal;
-  color: #ff6f00;
+  color: #00bfa5;
   font-size: 20px;
   text-decoration: underline;
 }
@@ -533,18 +533,18 @@ main {
 input[type=email]:not(.browser-default):focus:not([readonly]),
 .select-wrapper input.select-dropdown:focus,
 textarea.materialize-textarea:focus:not([readonly]){
-  border-bottom: 1px solid #ff6f00 !important;
-  box-shadow: 0 1px 0 0 #ff6f00 !important;
+  border-bottom: 1px solid #00bfa5 !important;
+  box-shadow: 0 1px 0 0 #00bfa5 !important;
 }
 /* label focus color */
 input[type=email]:not(.browser-default):focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly])+label
 {
-  color: #ff6f00 !important; 
+  color: #00bfa5 !important; 
   
 }
 .input-field .prefix.active{
-  color: #ff6f00 !important;
+  color: #00bfa5 !important;
 }
 .input-field .prefix ~ input,
 .input-field .prefix ~ textarea{
@@ -564,7 +564,7 @@ textarea.materialize-textarea:focus:not([readonly])+label
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin: 10px auto;
   width: 100%;
 }
 
@@ -601,7 +601,7 @@ footer{
   transition: .3s;
 }
 .social i:hover{
-  color: #ff6f00 !important;
+  color: #00bfa5 !important;
   transform: scale(1.3);
   transition: .3s;
   transform-origin: center;
@@ -630,9 +630,12 @@ footer{
 .p-tag{
     text-align: justify;
   }
+  .p-tag a{
+    color: #0091ea;
+  }
 
   .h2-tag{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .welcome p{

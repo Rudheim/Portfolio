@@ -34,11 +34,6 @@ const Skills = () => {
   return (
     <motion.div className="home" variants={componentVariants} initial='hidden' animate='visible' exit='exit'>
       <p className="tag h2-tag">&lt;h1&gt;<span className="title-str">&nbsp;{curLanguage.skills.title}&nbsp;</span>&lt;/h1&gt;</p>
-      <motion.p className="tag p-tag" variants={pVariants} initial='hidden' animate='visible'>
-        &lt;p&gt;<span className="content-str">
-        &nbsp;{curLanguage.skills.txt1}<br/>
-        {curLanguage.skills.txt2}<NavLink to="/contact" className="amber-text text-darken-4">{curLanguage.skills.txt3}</NavLink>. &nbsp;</span>&lt;/p&gt;
-      </motion.p>
       <motion.div variants={imgContainerVariants} className="skills-img-container">
         <motion.i variants={imageVariants} className="fab fa-react blue-text"></motion.i>
         <motion.i variants={imageVariants} className="fab fa-js-square yellow-text"></motion.i>
@@ -46,6 +41,12 @@ const Skills = () => {
         <motion.i variants={imageVariants} className="fab fa-html5 orange-text text-darken-3"></motion.i>
         <motion.i variants={imageVariants} className="fab fa-css3 blue-text"></motion.i>
       </motion.div>
+      <motion.p className="tag p-tag" variants={pVariants} initial='hidden' animate='visible'>
+        &lt;p&gt;<span className="content-str">
+        &nbsp;{curLanguage.skills.txt1}<br/>
+        {curLanguage.skills.txt2}<a target="_blank" rel="noopener noreferrer" href={curLanguage.skills.cv}>{curLanguage.skills.txt6}</a>{curLanguage.skills.txt7}<NavLink to="/contact" className="teal-text text-accent-4">{curLanguage.skills.txt3}</NavLink>.<br/>
+        {curLanguage.skills.txt4} {curLanguage.skills.txt5} &nbsp;</span>&lt;/p&gt;
+      </motion.p>
     </motion.div>
   );
 }

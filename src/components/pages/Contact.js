@@ -2,6 +2,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import M from "materialize-css";
 import { LanguageContext } from '../../contexts/LanguageContext';
+import {app} from '../../config/FireBaseConfig';
+
+const db = app.firestore();
 
 const componentVariants = {
   hidden: { x: -2000, originX: 0, scale: 0 },
@@ -30,8 +33,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(letter)
+    letter ? (db.collection("letters").doc().set(letter)
+                .then(() => {
+                  setLetter();
+                  document.querySelector('#email').value = '';
+                  document.querySelector('#textarea').value = '';
+                  M.toast({html: curLanguage.contacts.toast});
+                })
+    ) : (M.toast({html: curLanguage.contacts.toast2}));
   }
 
 
@@ -43,7 +52,7 @@ const Contact = () => {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-    M.toast({html: 'Telephone number has been copied'})
+    M.toast({html: curLanguage.skills.toast})
   }
   return (
     <motion.div className="home" variants={componentVariants} initial='hidden' animate='visible' exit='exit'>
@@ -57,17 +66,17 @@ const Contact = () => {
       <p className="tag h2-tag">&lt;h1&gt;<span className="title-str">&nbsp;{curLanguage.contacts.title}&nbsp;</span>&lt;/h1&gt;</p>
         <motion.p className="tag p-tag" variants={pVariants} initial='hidden' animate='visible'>
           &lt;p&gt;<span className="content-str"> &nbsp; {curLanguage.contacts.txt1} <br/>
-          {curLanguage.contacts.txt2} <a href="https://telegram.dog/Rudheim" className="blue-text">Telegram</a>, <a href="viber://chat?number=+380965263155" className="purple-text">Viber</a> and <span className="green-text">WhatsUp</span>{curLanguage.contacts.txt3}<span className="amber-text text-darken-4" onClick={handleClick} >+380965263155</span> &nbsp;</span>&lt;/p&gt;
+          {curLanguage.contacts.txt2} <a href="https://telegram.dog/Rudheim" className="blue-text">Telegram</a>, <a href="viber://chat?number=+380965263155" className="purple-text">Viber</a> and <span className="green-text">WhatsUp</span>{curLanguage.contacts.txt3}<span className="teal-text text-accent-4" onClick={handleClick} >+380965263155</span> &nbsp;</span>&lt;/p&gt;
         </motion.p>
         <motion.form variants={pVariants} className="row" onSubmit={handleSubmit}>
           <div className="input-field col s12">
             <i className="material-icons prefix grey-text">email</i>
-            <input id="email" type="email" onChange={handleChange} />
+            <input id="email" type="email" onChange={handleChange} className="validate" required/>
             <label htmlFor="email">{curLanguage.contacts.email}</label>
           </div>
           <div className="input-field col s12">
             <i className="material-icons prefix grey-text">mode_edit</i>
-            <textarea id="textarea" className="materialize-textarea" onChange={handleChange} ></textarea>
+            <textarea id="textarea" className="materialize-textarea validate" onChange={handleChange} required></textarea>
             <label htmlFor="textarea">{curLanguage.contacts.msg}</label>
           </div>
           <div to="/contact" className="btn-container center" onClick={handleSubmit}>

@@ -5,6 +5,10 @@ import pizzaimg_logo from '../../assets/pages images/pizza/pizza-logo.jpg';
 import pizzapage_img from '../../assets/pages images/pizza/pizza-img.jpg';
 import weatherimg_logo from '../../assets/pages images/weather/weather-logo.jpg';
 import weatherpage_img from '../../assets/pages images/weather/weather-img.jpg';
+import games_logo from '../../assets/pages images/games blog/games-logo.jpg';
+import games_img from '../../assets/pages images/games blog/games-img.jpg';
+import taemno_logo from '../../assets/pages images/Taemno/taemno-logo.jpg';
+import taemno_img from '../../assets/pages images/Taemno/taemno-img.jpg';
 
 const componentVariants = {
   hidden: { scale: 0 },
@@ -24,12 +28,12 @@ const Work = () => {
   const [pageData, setPageData] = useState();
 
   const data = [
-    { pageLogo: pizzaimg_logo, alt: '', name: 'Panucci\'s Pizza', link: 'www.pizza.com', pagePrev: pizzapage_img, id: 1 },
-    { pageLogo: weatherimg_logo, alt: '', name: 'SimpleWeather', link: 'www.simpleweather.com', pagePrev: weatherpage_img, id: 2 },
-    { pageLogo: pizzaimg_logo, alt: '', name: 'Taemno.net',  link: 'Taemno.net', pagePrev: pizzapage_img, id: 3 },
-    { pageLogo: pizzaimg_logo, alt: '', name: 'Panucci\'s Pizza', link: 'www.pizza.com', pagePrev: pizzapage_img, id: 4 },
-    { pageLogo: pizzaimg_logo, alt: '', name: 'Weather', link: 'www.weather.com', pagePrev: pizzapage_img, id: 5 },
-    { pageLogo: pizzaimg_logo, alt: '', name: 'Taemno.net', link: 'Taemno.net', pagePrev: pizzapage_img, id: 6 }
+    { pageLogo: pizzaimg_logo, alt: '', name: 'Panucci\'s Pizza', link: 'http://pizza.netheim.net/', pagePrev: pizzapage_img, id: 1 },
+    { pageLogo: games_logo, alt: '', name: 'Games Blog',  link: 'http://games.netheim.net/', pagePrev: games_img, id: 2 },
+    { pageLogo: weatherimg_logo, alt: '', name: 'SimpleWeather', link: 'http://weather.netheim.net/', pagePrev: weatherpage_img, id: 3 },
+    { pageLogo: taemno_logo, alt: '', name: 'Taemno.NET', link: 'http://taemno.netheim.net/', pagePrev: taemno_img, id: 4 },
+    // { pageLogo: pizzaimg_logo, alt: '', name: 'Weather', link: 'www.weather.com', pagePrev: pizzapage_img, id: 5 },
+    // { pageLogo: pizzaimg_logo, alt: '', name: 'Taemno.net', link: 'Taemno.net', pagePrev: pizzapage_img, id: 6 }
   ]
 
   return (
